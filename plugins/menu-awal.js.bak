@@ -1,0 +1,90 @@
+import { promises } from 'fs'
+import { join } from 'path'
+import { xpRange } from '../lib/levelling.js'
+import moment from 'moment-timezone'
+import os from 'os'
+import fs from 'fs'
+import fetch from 'node-fetch'
+
+let handler = async (m, { conn, args, command }) => {
+let usrs = db.data.users[m.sender]
+let _mpt
+    if (process.send) {
+      process.send('uptime')
+      _mpt = await new Promise(resolve => {
+        process.once('message', resolve)
+        setTimeout(resolve, 1000)
+      }) * 1000
+    }
+    let mpt = clockString(_mpt)
+let totalf = Object.values(global.plugins).filter(
+    (v) => v.help && v.tags
+  ).length;
+ await conn.sendButton(m.chat, `*${ucapan()} ${conn.getName(m.sender)}*
+*U S E R  I N F O*
+• *ɴᴀᴍᴇ:* ${usrs.registered ? usrs.name : conn.getName(m.sender)}
+• *ᴛᴀɢs:* @${m.sender.split`@`[0]}
+• *sᴛᴀᴛᴜs:* ${m.sender.split`@`[0] == nomorown ? '👑 Developer' : (usrs.premiumTime >= 1 ? '🌟 Premium User' : 'Free User')}
+• *ᴘʀᴇᴍɪᴜᴍ:* ${usrs.premiumTime > 1 ? 'Yes': 'No'}
+
+*S T A T U S  I N F O*
+• *ᴜᴘᴛɪᴍᴇ:* ${mpt}
+• *ᴛɪᴍᴇ:* ${moment.tz('Asia/Jakarta').format('HH')} H  ${moment.tz('Asia/Jakarta').format('mm')} M  ${moment.tz('Asia/Jakarta').format('ss')} S
+• *ᴜsᴇʀs:* ${Object.keys(global.db.data.users).length}
+• *ʟɪᴍɪᴛ:* ${usrs.limit}
+• *ʟᴇᴠᴇʟ:* ${usrs.level}
+• *ʀᴏʟᴇ:* ${usrs.role}${usrs.premiumTime > 1 ? `
+• *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ:*
+${clockStringP(usrs.premiumTime - new Date())}` : ''}
+`,botdate + '\n' + wm, `${fla + 'Menu'}`, [['𝘼𝙇𝙇 𝙈𝙀𝙉𝙐','.? all'],['𝙇𝙄𝙎𝙏 𝙈𝙀𝙉𝙐','.siuuu']], m, {
+contextInfo: { externalAdReply :{
+                        mediaUrl: '',
+                        mediaType: 2,
+                        description: 'anu',
+                        title: bottime,
+                        body: 'Total Cintaku Padamu',          previewType: 0,
+                        thumbnail: fs.readFileSync("./thumbnail.jpg"),
+                        sourceUrl: sig
+                      }}
+})
+}
+
+
+handler.help = ['totalfitur']
+handler.tags = ['info']
+handler.command = /^(menu|help|co)$/i
+
+function clockString(ms) {
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [h, ' H ', m, ' M ', s, ' S '].map(v => v.toString().padStart(2, 0)).join('')
+}
+function clockStringP(ms) {
+  let ye = isNaN(ms) ? '--' : Math.floor(ms / 31104000000) % 10
+  let mo = isNaN(ms) ? '--' : Math.floor(ms / 2592000000) % 12
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000) % 30
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [ye, ' *Years 🗓️*\n',  mo, ' *Month 🌙*\n', d, ' *Days ☀️*\n', h, ' *Hours 🕐*\n', m, ' *Minute ⏰*\n', s, ' *Second ⏱️*'].map(v => v.toString().padStart(2, 0)).join('')
+}
+function ucapan() {
+  const time = moment.tz('Asia/Jakarta').format('HH')
+  let res = "Selamat DiniHari ☀️"
+  if (time >= 4) {
+    res = "Good Morning 🌄"
+  }
+  if (time >= 10) {
+    res = "Good Afternoon ☀️"
+  }
+  if (time >= 15) {
+    res = "Good Afternoon 🌇"
+  }
+  if (time >= 18) {
+    res = "Good Night 🌙"
+  }
+  return res
+}
+
+export default handler
