@@ -233,12 +233,12 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args }) => {
 	},{
 	title: `M E N U`,
 	rows: [
-	    {title: `🗒️ › 𐐪-» All Menu «`, rowId: ".all", description: "╰► Waduhh. Langsung semuanya (≧▽≦)"},
+	    {title: `🗒️ › 𐐪-» All Menu «`, rowId: ".? all", description: "╰► Waduhh. Langsung semuanya (≧▽≦)"},
 	    {title: `🌱 › 𐐪-» Rpg «`, rowId: ".rpg", description: "╰► Calon anak petualang nih... -𐑂"},
 	{title: `✨ › 𐐪-» Exp «`, rowId: ".xp", description: "╰► Kalau dah level 100 dapat hadiah (≧▽≦)"},
 	{title: `🎮 › 𐐪-» Game «`, rowId: ".game", description: "╰► Bg kamu main game apa?.... >-<"},
 	{title: `🧩 › 𐐪-» Fun «`, rowId: ".fun", description: "╰► Gabut ya bang?"},
-	{title: `🐚 › 𐐪-» Kerang «`, rowId: ".kerangajaib", description: "╰► Mau tanya apa sih bg?..."},
+	{title: `🐚 › 𐐪-» Kerang «`, rowId: ".kerangg", description: "╰► Mau tanya apa sih bg?..."},
 	{title: `📑 › 𐐪-» Quotes «`, rowId: ".quotes", description: "╰► Ada yg mau nyari topik nih... >-<"},
 	{title: `⛩️ › 𐐪-» Anime «`, rowId: ".anime", description: "╰► Lah, Wibuu...-𐑂"},
 	{title: `🔞 › 𐐪-» Nsfw «`, rowId: ".nsfw", description: "╰► Anak kecil ga boleh ya...."},
