@@ -36,7 +36,7 @@ let totalf = Object.values(global.plugins).filter(
 • *ʀᴏʟᴇ:* ${usrs.role}${usrs.premiumTime > 1 ? `
 • *ᴇxᴘɪʀᴇᴅ ᴘʀᴇᴍɪᴜᴍ:*
 ${clockStringP(usrs.premiumTime - new Date())}` : ''}
-`,botdate + '\n' + wm, `${fla + 'Menu'}`, [['𝘼𝙇𝙇 𝙈𝙀𝙉𝙐','.? all'],['𝙇𝙄𝙎𝙏 𝙈𝙀𝙉𝙐','.siuuu']], m, {
+`,botdate + '\n' + wm, `${fla + 'Menu'}`, [['Ping','.ping'],['List Menu','.listmenu']], m, {
 contextInfo: { externalAdReply :{
                         mediaUrl: '',
                         mediaType: 2,
